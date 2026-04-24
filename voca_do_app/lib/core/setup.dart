@@ -1,17 +1,11 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:voca_do_app/core/config/env/env.dart';
 
 Future<void> setup() async {
   //----------------------------------------------------------------------------
-  await dotenv.load(fileName: ".env");
-  //----------------------------------------------------------------------------
-  await Supabase.initialize(
-    url: dotenv.env['url_supabase'].toString(),
-    anonKey: dotenv.env['key_supabase'].toString(),
-  );
+  await Supabase.initialize(url: Env.supabaseUrl, anonKey: Env.supabaseAnonKey);
   //----------------------------------------------------------------------------
   await GetStorage.init();
   //----------------------------------------------------------------------------
 }
-
