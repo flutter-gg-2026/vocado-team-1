@@ -9,6 +9,12 @@ import 'package:voca_do_app/features/sign_in/presentation/pages/sign_in_feature_
 import 'package:voca_do_app/features/sign_in/presentation/cubit/sign_in_cubit.dart';
 import 'package:voca_do_app/features/splash/presentation/pages/splash_feature_screen.dart';
 import 'package:voca_do_app/features/splash/presentation/cubit/splash_cubit.dart';
+import 'package:voca_do_app/features/test_admin_home/presentation/pages/test_admin_home_feature_screen.dart';
+import 'package:voca_do_app/features/test_admin_home/presentation/cubit/test_admin_home_cubit.dart';
+import 'package:voca_do_app/features/test_user_home/presentation/pages/test_user_home_feature_screen.dart';
+import 'package:voca_do_app/features/test_user_home/presentation/cubit/test_user_home_cubit.dart';
+
+
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -44,7 +50,23 @@ class AppRouter {
           child: const SplashFeatureScreen(),
         ),
       ),
-    ],
+    
+  GoRoute(
+    path: Routes.testAdminHome,
+    builder: (context, state) => BlocProvider(
+          create: (context) => TestAdminHomeCubit(GetIt.I.get()),
+          child: const TestAdminHomeFeatureScreen(),
+        ),
+  ),
+
+  GoRoute(
+    path: Routes.testUserHome,
+    builder: (context, state) => BlocProvider(
+          create: (context) => TestUserHomeCubit(GetIt.I.get()),
+          child: const TestUserHomeFeatureScreen(),
+        ),
+  ),
+],
 
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),

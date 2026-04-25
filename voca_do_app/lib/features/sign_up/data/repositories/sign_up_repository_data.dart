@@ -1,4 +1,3 @@
-
 import 'package:injectable/injectable.dart';
 import 'package:multiple_result/multiple_result.dart';
 import 'package:voca_do_app/core/errors/network_exceptions.dart';
@@ -10,17 +9,28 @@ import 'package:voca_do_app/features/sign_up/data/models/sign_up_model.dart';
 import 'package:voca_do_app/features/sign_up/domain/repositories/sign_up_repository_domain.dart';
 
 @LazySingleton(as: SignUpRepositoryDomain)
-class SignUpRepositoryData implements SignUpRepositoryDomain{
+class SignUpRepositoryData implements SignUpRepositoryDomain {
   final BaseSignUpRemoteDataSource remoteDataSource;
-
 
   SignUpRepositoryData(this.remoteDataSource);
 
-@override
-  Future<Result<SignUpEntity, Failure>> getSignUp() async {
+  @override
+  Future<Result<SignUpEntity, Failure>> signUp({
+    required String fullName,
+    required String email,
+    required String password,
+    required String role,
+  }) async {
     try {
-      final response = await remoteDataSource.getSignUp();
+      final response = await remoteDataSource.signUp(
+        fullName: fullName,
+        email: email,
+        password: password,
+        role: role,
+      );
       return Success(response.toEntity());
+    } on Failure catch (error) {
+      return Error(error);
     } catch (error) {
       return Error(FailureExceptions.getException(error));
     }

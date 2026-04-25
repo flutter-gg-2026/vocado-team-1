@@ -9,6 +9,7 @@ class LocalKeysService {
   final String refreshToken = 'refresh_token';
   final String userId = 'user_id';
   final String isLoggedIn = 'is_logged_in';
+  final String userSession = 'user_session';
 
   // Settings Keys
   final String theme = 'theme_mode';
@@ -19,5 +20,5 @@ class LocalKeysService {
   final String userName = 'user_name';
   final String userEmail = 'user_email';
   final String userAvatar = 'user_avatar';
+  final String userRole = 'user_role';
 }
-
