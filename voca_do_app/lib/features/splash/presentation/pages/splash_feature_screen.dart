@@ -14,21 +14,27 @@ class SplashFeatureScreen extends StatelessWidget {
   const SplashFeatureScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SplashCubit>();
+    final _ = context.read<SplashCubit>();
 
     return Scaffold(
       body: BlocListener<SplashCubit, SplashState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           switch (state) {
             case SplashAuthenticatedState _:
               if (state.user.userRole?.toLowerCase() ==
                   Role.admin.name.toLowerCase()) {
-                context.go(Routes.testAdminHome);
+                await Future.delayed(Duration(milliseconds: 2000));
+                if (context.mounted) {
+                  context.go(Routes.testAdminHome);
+                }
               } else {
                 context.go(Routes.testUserHome);
               }
             case SplashUnauthenticatedState _:
-              context.go(Routes.signUp);
+              await Future.delayed(Duration(milliseconds: 2000));
+              if (context.mounted) {
+                context.go(Routes.signUp);
+              }
             case SplashErrorState _:
               context.showSnackBar(state.message, isError: true);
           }
