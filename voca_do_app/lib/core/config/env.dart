@@ -9,4 +9,7 @@ abstract class Env {
 
   @EnviedField(varName: 'url_supabase',obfuscate: true)
   static final String supabaseUrl = _Env.supabaseUrl;
+
+  @EnviedField(varName: 'key_gemini', obfuscate: true)
+  static final String geminiKey = _Env.geminiKey;
 }

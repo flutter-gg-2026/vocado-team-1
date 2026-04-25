@@ -7,6 +7,7 @@ import 'package:voca_do_app/features/splash/di/splash_di.dart';
 import 'package:voca_do_app/features/test_admin_home/di/test_admin_home_di.dart';
 import 'package:voca_do_app/features/test_user_home/di/test_user_home_di.dart';
 import 'package:voca_do_app/features/sub/sign_out/di/sign_out_di.dart';
+import 'package:voca_do_app/features/sub/task_generator/di/task_generator_di.dart';
 
 @InjectableInit(
   initializerName: 'init', 
@@ -24,4 +25,5 @@ Future<void> configureDependencies() async {
     configureTestAdminHome(getIt);
     configureTestUserHome(getIt);
     configureSignOutSub(getIt);
+    configureTaskGeneratorSub(getIt);
 }
