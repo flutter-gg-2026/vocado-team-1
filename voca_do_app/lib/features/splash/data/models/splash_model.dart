@@ -6,9 +6,8 @@ part 'splash_model.g.dart';
 @freezed
 abstract class SplashModel with _$SplashModel {
   const factory SplashModel({
-    required int id,
-    required String firstName,
-    required String lastName,
+  required bool isLoggedIn,
+  required String? userRole,
     
   }) = _SplashModel;
 
@@ -19,6 +18,6 @@ abstract class SplashModel with _$SplashModel {
 
 extension SplashModelMapper on SplashModel {
   SplashEntity toEntity() {
-    return SplashEntity(id: id, firstName: firstName, lastName: lastName);
+    return SplashEntity(isLoggedIn: isLoggedIn,userRole: userRole);
   }
   }

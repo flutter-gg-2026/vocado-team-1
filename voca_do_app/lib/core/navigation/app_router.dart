@@ -14,17 +14,16 @@ import 'package:voca_do_app/features/test_admin_home/presentation/cubit/test_adm
 import 'package:voca_do_app/features/test_user_home/presentation/pages/test_user_home_feature_screen.dart';
 import 'package:voca_do_app/features/test_user_home/presentation/cubit/test_user_home_cubit.dart';
 
-
-
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: Routes.signUp,
+    initialLocation: Routes.splash,
     routes: [
       GoRoute(
         path: Routes.splash,
-        builder: (context, state) {
-          return Scaffold(body: Center(child: Text("splash screen")));
-        }, // SplashScreen
+        builder: (context, state) => BlocProvider(
+          create: (context) => SplashCubit(GetIt.I.get()),
+          child: const SplashFeatureScreen(),
+        ),
       ),
 
       GoRoute(
@@ -50,23 +49,23 @@ class AppRouter {
           child: const SplashFeatureScreen(),
         ),
       ),
-    
-  GoRoute(
-    path: Routes.testAdminHome,
-    builder: (context, state) => BlocProvider(
+
+      GoRoute(
+        path: Routes.testAdminHome,
+        builder: (context, state) => BlocProvider(
           create: (context) => TestAdminHomeCubit(GetIt.I.get()),
           child: const TestAdminHomeFeatureScreen(),
         ),
-  ),
+      ),
 
-  GoRoute(
-    path: Routes.testUserHome,
-    builder: (context, state) => BlocProvider(
+      GoRoute(
+        path: Routes.testUserHome,
+        builder: (context, state) => BlocProvider(
           create: (context) => TestUserHomeCubit(GetIt.I.get()),
           child: const TestUserHomeFeatureScreen(),
         ),
-  ),
-],
+      ),
+    ],
 
     errorBuilder: (context, state) =>
         Scaffold(body: Center(child: Text('Page not found: ${state.uri}'))),

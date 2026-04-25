@@ -11,7 +11,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:supabase_flutter/supabase_flutter.dart' as _i454;
 import 'package:voca_do_app/core/services/local_keys_service.dart' as _i523;
 import 'package:voca_do_app/features/splash/data/datasources/splash_remote_data_source.dart'
     as _i713;
@@ -30,10 +29,7 @@ extension GetItInjectableX on _i174.GetIt {
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     gh.lazySingleton<_i713.BaseSplashRemoteDataSource>(
-      () => _i713.SplashRemoteDataSource(
-        gh<_i523.LocalKeysService>(),
-        gh<_i454.SupabaseClient>(),
-      ),
+      () => _i713.SplashRemoteDataSource(gh<_i523.LocalKeysService>()),
     );
     gh.lazySingleton<_i250.SplashRepositoryDomain>(
       () => _i760.SplashRepositoryData(gh<_i713.BaseSplashRemoteDataSource>()),

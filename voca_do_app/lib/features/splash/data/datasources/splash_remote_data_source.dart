@@ -1,33 +1,26 @@
+import 'package:get_storage/get_storage.dart';
 import 'package:injectable/injectable.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:voca_do_app/core/services/local_keys_service.dart';
-import 'package:voca_do_app/features/splash/data/models/splash_model.dart';
-import 'package:voca_do_app/core/errors/network_exceptions.dart';
-
 
 abstract class BaseSplashRemoteDataSource {
-  Future<SplashModel> getSplash();
+  Future<bool> checkSessionStatus();
+  Future<String?> getUserRole();
 }
-
 
 @LazySingleton(as: BaseSplashRemoteDataSource)
 class SplashRemoteDataSource implements BaseSplashRemoteDataSource {
- 
-  final SupabaseClient _supabase;
   final LocalKeysService _localKeysService;
-  
-  
+  final _storage = GetStorage();
 
-   SplashRemoteDataSource(this._localKeysService, this._supabase);
+  SplashRemoteDataSource(this._localKeysService);
 
+  @override
+  Future<bool> checkSessionStatus() async {
+    return _storage.read<bool>(_localKeysService.isLoggedIn) ?? false;
+  }
 
-
-    @override
-  Future<SplashModel> getSplash() async {
-    try {
-      return SplashModel(id: 1, firstName: "Last Name", lastName: "First Name");
-    } catch (error) {
-     throw FailureExceptions.getException(error);
-    }
+  @override
+  Future<String?> getUserRole() async {
+    return _storage.read<String>(_localKeysService.userRole);
   }
 }

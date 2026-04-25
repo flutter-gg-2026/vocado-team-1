@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SplashModel {
 
- int get id; String get firstName; String get lastName;
+ bool get isLoggedIn; String? get userRole;
 /// Create a copy of SplashModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SplashModelCopyWith<SplashModel> get copyWith => _$SplashModelCopyWithImpl<Spla
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplashModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplashModel&&(identical(other.isLoggedIn, isLoggedIn) || other.isLoggedIn == isLoggedIn)&&(identical(other.userRole, userRole) || other.userRole == userRole));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,isLoggedIn,userRole);
 
 @override
 String toString() {
-  return 'SplashModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'SplashModel(isLoggedIn: $isLoggedIn, userRole: $userRole)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $SplashModelCopyWith<$Res>  {
   factory $SplashModelCopyWith(SplashModel value, $Res Function(SplashModel) _then) = _$SplashModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String firstName, String lastName
+ bool isLoggedIn, String? userRole
 });
 
 
@@ -65,12 +65,11 @@ class _$SplashModelCopyWithImpl<$Res>
 
 /// Create a copy of SplashModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? isLoggedIn = null,Object? userRole = freezed,}) {
   return _then(_self.copyWith(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
-as String,
+isLoggedIn: null == isLoggedIn ? _self.isLoggedIn : isLoggedIn // ignore: cast_nullable_to_non_nullable
+as bool,userRole: freezed == userRole ? _self.userRole : userRole // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -155,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( bool isLoggedIn,  String? userRole)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SplashModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.isLoggedIn,_that.userRole);case _:
   return orElse();
 
 }
@@ -176,10 +175,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( bool isLoggedIn,  String? userRole)  $default,) {final _that = this;
 switch (_that) {
 case _SplashModel():
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.isLoggedIn,_that.userRole);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +195,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String firstName,  String lastName)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( bool isLoggedIn,  String? userRole)?  $default,) {final _that = this;
 switch (_that) {
 case _SplashModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.isLoggedIn,_that.userRole);case _:
   return null;
 
 }
@@ -211,12 +210,11 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 @JsonSerializable()
 
 class _SplashModel implements SplashModel {
-  const _SplashModel({required this.id, required this.firstName, required this.lastName});
+  const _SplashModel({required this.isLoggedIn, required this.userRole});
   factory _SplashModel.fromJson(Map<String, dynamic> json) => _$SplashModelFromJson(json);
 
-@override final  int id;
-@override final  String firstName;
-@override final  String lastName;
+@override final  bool isLoggedIn;
+@override final  String? userRole;
 
 /// Create a copy of SplashModel
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +229,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SplashModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SplashModel&&(identical(other.isLoggedIn, isLoggedIn) || other.isLoggedIn == isLoggedIn)&&(identical(other.userRole, userRole) || other.userRole == userRole));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,isLoggedIn,userRole);
 
 @override
 String toString() {
-  return 'SplashModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'SplashModel(isLoggedIn: $isLoggedIn, userRole: $userRole)';
 }
 
 
@@ -251,7 +249,7 @@ abstract mixin class _$SplashModelCopyWith<$Res> implements $SplashModelCopyWith
   factory _$SplashModelCopyWith(_SplashModel value, $Res Function(_SplashModel) _then) = __$SplashModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String firstName, String lastName
+ bool isLoggedIn, String? userRole
 });
 
 
@@ -268,12 +266,11 @@ class __$SplashModelCopyWithImpl<$Res>
 
 /// Create a copy of SplashModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? isLoggedIn = null,Object? userRole = freezed,}) {
   return _then(_SplashModel(
-id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
-as String,
+isLoggedIn: null == isLoggedIn ? _self.isLoggedIn : isLoggedIn // ignore: cast_nullable_to_non_nullable
+as bool,userRole: freezed == userRole ? _self.userRole : userRole // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
