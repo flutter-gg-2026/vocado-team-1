@@ -18,7 +18,12 @@ class HomeRemoteDataSource implements BaseHomeRemoteDataSource {
   @override
   Future<HomeModel> getHome() async {
     try {
-      final response = await _supabase.from('tasks').select('status');
+      final response = await _supabase
+          .from('tasks')
+          .select('status')
+          // TODO: replace hardcoded user id with logged-in user id from LocalKeysService after Sign-in feature is completed
+          // .eq('assigned_to', _localKeysService.userId)
+          .eq('assigned_to', 'c42a8b7d-4ac3-49b7-bf6b-fdc9c8cffb38');
       final newTasks = response.where((task) => task['status'] == 'New').length;
       final inProgressTasks = response
           .where((task) => task['status'] == 'In Progress')
