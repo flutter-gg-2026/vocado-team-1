@@ -22,29 +22,46 @@ extension GladiaExtesion on DioClient {
     );
     return response.data['audio_url'];
   }
-  
 
   //
   Future<String> voiceTranscriptMethod({required String url}) async {
     final response = await dio.post(
       ApiEndpoints.transcriptionAudio,
-      data: {'audio_url': url},
+      data: {
+        'audio_url': url,
+        'detect_language': true,
+        'language_config': {
+          'languages': ['ar', 'en'],
+        },
+      },
     );
     return response.data['id'];
   }
 
-
-
-  Future<Map<String, dynamic>> getInformation({
-    required String idVoiceTranscript,
-  }) async {
+  Future<String> getInformation({required String idVoiceTranscript}) async {
     late Response response;
+
     do {
       response = await dio.get(
         "${ApiEndpoints.transcriptionAudio}/$idVoiceTranscript",
       );
+
+      /// debugPrint("Gladia status: ${response.data['status']}");
+      //  debugPrint("Gladia full response: ${response.data}");
+      //  debugPrint("Gladia status: ${response.data['status']}");
+
       await Future.delayed(Duration(seconds: 2));
     } while (response.data['status'] != 'done');
-    return response.data['result'];
+
+    final transcript =
+        response.data['result']?['transcription']?['full_transcript'];
+    /*
+  debugPrint("FINAL TRANSCRIPT: $transcript", wrapWidth: 1024);
+
+  if (transcript == null || transcript.toString().trim().isEmpty) {
+    throw Exception("the sound not clear at all ");
+  }*/
+
+    return transcript.toString();
   }
 }
