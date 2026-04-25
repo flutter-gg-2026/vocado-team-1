@@ -25,4 +25,14 @@ class HomeRepositoryData implements HomeRepositoryDomain{
       return Error(FailureExceptions.getException(error));
     }
   }
+@override
+Future<Result<HomeEntity, Failure>> getAdminHome() async {
+  try {
+    final response = await remoteDataSource.getAdminHome();
+    return Success(response.toEntity());
+  } catch (error) {
+    return Error(FailureExceptions.getException(error));
+  }
+}
+
 }

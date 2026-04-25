@@ -5,16 +5,16 @@ import 'package:voca_do_app/features/home/presentation/cubit/home_state.dart';
 import 'package:go_router/go_router.dart';
 import 'package:voca_do_app/core/navigation/routers.dart';
 
-class HomeFeatureScreen extends StatelessWidget {
-  const HomeFeatureScreen({super.key});
+class UserDashboardFeatureScreen extends StatelessWidget {
+  const UserDashboardFeatureScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-Future.microtask(() => context.read<HomeCubit>().getAdminHomeMethod());
-    return Scaffold(
-      appBar: AppBar(title: const Text('Task Dashboard')),
+    Future.microtask(() => context.read<HomeCubit>().getHomeMethod());
 
-      /// Bottom Navigation Bar
+    return Scaffold(
+      appBar: AppBar(title: const Text('User Dashboard')),
+
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 1,
         selectedItemColor: Colors.deepPurple,
@@ -29,9 +29,18 @@ Future.microtask(() => context.read<HomeCubit>().getAdminHomeMethod());
           }
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.task), label: 'Tasks'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task),
+            label: 'Tasks',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
       ),
 
@@ -83,7 +92,10 @@ class _StatusCard extends StatelessWidget {
         title: Text(title),
         trailing: Text(
           count.toString(),
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

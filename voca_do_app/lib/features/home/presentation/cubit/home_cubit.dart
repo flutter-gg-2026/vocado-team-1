@@ -26,6 +26,27 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
+  Future<void> getAdminHomeMethod() async {
+  emit(HomeLoadingState());
+
+  final result = await _homeUseCase.getAdminHome();
+
+  result.when(
+    (success) {
+      emit(
+        HomeSuccessState(
+          newTasks: success.newTasks,
+          inProgressTasks: success.inProgressTasks,
+          lateTasks: success.lateTasks,
+        ),
+      );
+    },
+    (whenError) {
+      emit(HomeErrorState(message: whenError.toString()));
+    },
+  );
+}
+
   @override
   Future<void> close() {
     //here is when close cubit

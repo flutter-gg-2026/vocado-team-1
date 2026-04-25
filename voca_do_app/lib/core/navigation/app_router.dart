@@ -9,6 +9,7 @@ import 'package:voca_do_app/features/tasks/presentation/pages/tasks_feature_scre
 import 'package:voca_do_app/features/tasks/presentation/cubit/tasks_cubit.dart';
 import 'package:voca_do_app/features/tasks/domain/entities/tasks_entity.dart';
 import 'package:voca_do_app/features/tasks/presentation/pages/task_details_feature_screen.dart';
+import 'package:voca_do_app/features/home/presentation/pages/user_dashboard_feature_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -23,10 +24,22 @@ class AppRouter {
 
       GoRoute(
         path: Routes.home,
-        builder: (context, state) => BlocProvider(
-          create: (context) => HomeCubit(GetIt.I.get()),
-          child: const HomeFeatureScreen(),
-        ),
+        builder: (context, state) {
+          // TODO: Replace static role with dynamic role from Supabase (user_role table) after login
+          const role = "user";
+
+          if (role == "admin") {
+            return BlocProvider(
+              create: (context) => HomeCubit(GetIt.I.get()),
+              child: const HomeFeatureScreen(),
+            );
+          }
+
+          return BlocProvider(
+            create: (context) => HomeCubit(GetIt.I.get()),
+            child: const UserDashboardFeatureScreen(),
+          );
+        },
       ),
 
       GoRoute(
@@ -43,6 +56,13 @@ class AppRouter {
 
           return TaskDetailsFeatureScreen(task: task);
         },
+      ),
+      GoRoute(
+        path: Routes.userDashboard,
+        builder: (context, state) => BlocProvider(
+          create: (context) => HomeCubit(GetIt.I.get()),
+          child: const UserDashboardFeatureScreen(),
+        ),
       ),
     ],
 

@@ -6,6 +6,7 @@ import 'package:voca_do_app/core/errors/network_exceptions.dart';
 
 abstract class BaseHomeRemoteDataSource {
   Future<HomeModel> getHome();
+  Future<HomeModel> getAdminHome();
 }
 
 @LazySingleton(as: BaseHomeRemoteDataSource)
@@ -31,6 +32,31 @@ class HomeRemoteDataSource implements BaseHomeRemoteDataSource {
       final lateTasks = response
           .where((task) => task['status'] == 'Late')
           .length;
+      return HomeModel(
+        newTasks: newTasks,
+        inProgressTasks: inProgressTasks,
+        lateTasks: lateTasks,
+      );
+    } catch (error) {
+      throw FailureExceptions.getException(error);
+    }
+  }
+
+  @override
+  Future<HomeModel> getAdminHome() async {
+    try {
+      final response = await _supabase.from('tasks').select('status');
+
+      final newTasks = response.where((task) => task['status'] == 'New').length;
+
+      final inProgressTasks = response
+          .where((task) => task['status'] == 'In Progress')
+          .length;
+
+      final lateTasks = response
+          .where((task) => task['status'] == 'Late')
+          .length;
+
       return HomeModel(
         newTasks: newTasks,
         inProgressTasks: inProgressTasks,
