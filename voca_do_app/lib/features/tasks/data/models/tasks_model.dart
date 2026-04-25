@@ -1,7 +1,7 @@
 import 'package:voca_do_app/features/tasks/domain/entities/tasks_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'tasks_model.freezed.dart';
-part 'tasks_model.g.dart';
 
 @freezed
 abstract class TasksModel with _$TasksModel {
@@ -14,24 +14,33 @@ abstract class TasksModel with _$TasksModel {
     String? assignedBy,
     String? dueDate,
     String? createdAt,
-
-    
   }) = _TasksModel;
 
-  factory TasksModel.fromJson(Map<String, Object?> json) => _$TasksModelFromJson(json);
+  factory TasksModel.fromJson(Map<String, Object?> json) {
+    return TasksModel(
+      id: json['id'].toString(),
+      title: json['title'].toString(),
+      description: json['description'].toString(),
+      status: json['status'].toString(),
+      assignedTo: json['assigned_to']?.toString(),
+      assignedBy: json['assigned_by']?.toString(),
+      dueDate: json['due_date']?.toString(),
+      createdAt: json['created_at']?.toString(),
+    );
+  }
 }
 
 extension TasksModelMapper on TasksModel {
   TasksEntity toEntity() {
     return TasksEntity(
       id: id,
-       title: title, 
-       description: description,
-       status : status,
-       assignedTo : assignedTo,
-       assignedBy : assignedBy,
-       dueDate : dueDate,
-       createdAt : createdAt,
-       );
+      title: title,
+      description: description,
+      status: status,
+      assignedTo: assignedTo,
+      assignedBy: assignedBy,
+      dueDate: dueDate,
+      createdAt: createdAt,
+    );
   }
-  }
+}

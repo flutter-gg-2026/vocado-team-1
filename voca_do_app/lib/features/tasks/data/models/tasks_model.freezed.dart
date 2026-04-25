@@ -11,7 +11,6 @@ part of 'tasks_model.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$TasksModel {
 
@@ -22,8 +21,6 @@ mixin _$TasksModel {
 @pragma('vm:prefer-inline')
 $TasksModelCopyWith<TasksModel> get copyWith => _$TasksModelCopyWithImpl<TasksModel>(this as TasksModel, _$identity);
 
-  /// Serializes this TasksModel to a JSON map.
-  Map<String, dynamic> toJson();
 
 
 @override
@@ -31,7 +28,7 @@ bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is TasksModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.status, status) || other.status == status)&&(identical(other.assignedTo, assignedTo) || other.assignedTo == assignedTo)&&(identical(other.assignedBy, assignedBy) || other.assignedBy == assignedBy)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,id,title,description,status,assignedTo,assignedBy,dueDate,createdAt);
 
@@ -213,11 +210,11 @@ return $default(_that.id,_that.title,_that.description,_that.status,_that.assign
 }
 
 /// @nodoc
-@JsonSerializable()
+
 
 class _TasksModel implements TasksModel {
   const _TasksModel({required this.id, required this.title, required this.description, required this.status, this.assignedTo, this.assignedBy, this.dueDate, this.createdAt});
-  factory _TasksModel.fromJson(Map<String, dynamic> json) => _$TasksModelFromJson(json);
+  
 
 @override final  String id;
 @override final  String title;
@@ -234,17 +231,14 @@ class _TasksModel implements TasksModel {
 @pragma('vm:prefer-inline')
 _$TasksModelCopyWith<_TasksModel> get copyWith => __$TasksModelCopyWithImpl<_TasksModel>(this, _$identity);
 
-@override
-Map<String, dynamic> toJson() {
-  return _$TasksModelToJson(this, );
-}
+
 
 @override
 bool operator ==(Object other) {
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _TasksModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.status, status) || other.status == status)&&(identical(other.assignedTo, assignedTo) || other.assignedTo == assignedTo)&&(identical(other.assignedBy, assignedBy) || other.assignedBy == assignedBy)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
-@JsonKey(includeFromJson: false, includeToJson: false)
+
 @override
 int get hashCode => Object.hash(runtimeType,id,title,description,status,assignedTo,assignedBy,dueDate,createdAt);
 

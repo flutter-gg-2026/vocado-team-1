@@ -23,14 +23,38 @@ class TasksListByStatusWidget extends StatelessWidget {
         }
 
         if (state is TasksSuccessState) {
-          final filteredTasks = state.tasks
-              .where((task) => task.status == status)
-              .toList();
+          final now = DateTime.now();
+
+          final filteredTasks = state.tasks.where((task) {
+            final dueDate = task.dueDate == null
+                ? null
+                : DateTime.tryParse(task.dueDate!);
+
+            final isLate =
+                dueDate != null &&
+                dueDate.isBefore(now) &&
+                task.status != 'Completed';
+
+            if (status == 'Late') {
+              return isLate;
+            }
+
+            return task.status == status && !isLate;
+          }).toList();
 
           return ListView.builder(
             itemCount: filteredTasks.length,
             itemBuilder: (context, index) {
               final task = filteredTasks[index];
+
+              final dueDate = task.dueDate == null
+                  ? null
+                  : DateTime.tryParse(task.dueDate!);
+
+              final isLate =
+                  dueDate != null &&
+                  dueDate.isBefore(DateTime.now()) &&
+                  task.status != 'Completed';
 
               return Card(
                 child: ListTile(
@@ -39,7 +63,8 @@ class TasksListByStatusWidget extends StatelessWidget {
                   },
                   title: Text(task.title),
                   subtitle: Text(task.description),
-                  trailing: Text(task.status),
+
+                  trailing: Text(isLate ? 'Late' : task.status),
                 ),
               );
             },
