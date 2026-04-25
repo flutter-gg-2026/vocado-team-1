@@ -7,14 +7,23 @@ class SignInCubit extends Cubit<SignInState> {
 
   SignInCubit(this._signInUseCase) : super(SignInInitialState());
 
-  Future<void> getSignInMethod() async {
-    final result = await _signInUseCase.getSignIn();
+  Future<void> signInMethod({
+    required String email,
+    required String password,
+  }) async {
+    emit(SignInLoadingState());
+    final result = await _signInUseCase.signIn(
+      email: email,
+      password: password,
+    );
     result.when(
       (success) {
         //here is when success result
+        emit(SignInSuccessState(user: success));
       },
       (whenError) {
-       //here is when error result
+        //here is when error result
+        emit(SignInErrorState(message: whenError.message));
       },
     );
   }

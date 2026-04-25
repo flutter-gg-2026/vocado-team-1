@@ -1,9 +1,9 @@
 import 'package:multiple_result/multiple_result.dart';
 import 'package:voca_do_app/core/errors/failure.dart';
-import 'package:voca_do_app/features/sign_up/domain/entities/sign_up_entity.dart';
+import 'package:voca_do_app/core/common/enities/active_user_entity.dart';
 
 abstract class SignUpRepositoryDomain {
-    Future<Result<SignUpEntity, Failure>> signUp({
+    Future<Result<ActiveUserEntity, Failure>> signUp({
     required String fullName,
     required String email,
     required String password,

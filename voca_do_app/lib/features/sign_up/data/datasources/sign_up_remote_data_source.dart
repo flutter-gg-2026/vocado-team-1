@@ -2,11 +2,11 @@ import 'package:get_storage/get_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:voca_do_app/core/services/local_keys_service.dart';
-import 'package:voca_do_app/features/sign_up/data/models/sign_up_model.dart';
+import 'package:voca_do_app/core/common/models/active_user_model.dart';
 import 'package:voca_do_app/core/errors/network_exceptions.dart';
 
 abstract class BaseSignUpRemoteDataSource {
-  Future<SignUpModel> signUp({
+  Future<ActiveUserModel> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -23,7 +23,7 @@ class SignUpRemoteDataSource implements BaseSignUpRemoteDataSource {
   SignUpRemoteDataSource(this._localKeysService, this._supabase);
 
   @override
-  Future<SignUpModel> signUp({
+  Future<ActiveUserModel> signUp({
     required String fullName,
     required String email,
     required String password,
@@ -52,7 +52,7 @@ class SignUpRemoteDataSource implements BaseSignUpRemoteDataSource {
           role: role,
         );
       }
-      return SignUpModel(
+      return ActiveUserModel(
         id: user.id,
         email: user.email!,
         name: fullName,

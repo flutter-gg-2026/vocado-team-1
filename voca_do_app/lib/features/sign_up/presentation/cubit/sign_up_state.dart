@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:voca_do_app/features/sign_up/domain/entities/sign_up_entity.dart';
+import 'package:voca_do_app/core/common/enities/active_user_entity.dart';
 
 abstract class SignUpState extends Equatable {
   const SignUpState();
@@ -13,7 +13,7 @@ class SignUpInitialState extends SignUpState {}
 class SignUpLoadingState extends SignUpState {}
 
 class SignUpSuccessState extends SignUpState {
-  final SignUpEntity user;
+  final ActiveUserEntity user;
 
   const SignUpSuccessState({required this.user});
   @override

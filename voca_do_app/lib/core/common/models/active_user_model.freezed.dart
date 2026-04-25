@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'sign_up_model.dart';
+part of 'active_user_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,22 +13,22 @@ part of 'sign_up_model.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-mixin _$SignUpModel {
+mixin _$ActiveUserModel {
 
  String get id; String get email; String get name; String get role;
-/// Create a copy of SignUpModel
+/// Create a copy of ActiveUserModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$SignUpModelCopyWith<SignUpModel> get copyWith => _$SignUpModelCopyWithImpl<SignUpModel>(this as SignUpModel, _$identity);
+$ActiveUserModelCopyWith<ActiveUserModel> get copyWith => _$ActiveUserModelCopyWithImpl<ActiveUserModel>(this as ActiveUserModel, _$identity);
 
-  /// Serializes this SignUpModel to a JSON map.
+  /// Serializes this ActiveUserModel to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignUpModel&&(identical(other.id, id) || other.id == id)&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.role, role) || other.role == role));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ActiveUserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.role, role) || other.role == role));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -37,15 +37,15 @@ int get hashCode => Object.hash(runtimeType,id,email,name,role);
 
 @override
 String toString() {
-  return 'SignUpModel(id: $id, email: $email, name: $name, role: $role)';
+  return 'ActiveUserModel(id: $id, email: $email, name: $name, role: $role)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $SignUpModelCopyWith<$Res>  {
-  factory $SignUpModelCopyWith(SignUpModel value, $Res Function(SignUpModel) _then) = _$SignUpModelCopyWithImpl;
+abstract mixin class $ActiveUserModelCopyWith<$Res>  {
+  factory $ActiveUserModelCopyWith(ActiveUserModel value, $Res Function(ActiveUserModel) _then) = _$ActiveUserModelCopyWithImpl;
 @useResult
 $Res call({
  String id, String email, String name, String role
@@ -56,14 +56,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$SignUpModelCopyWithImpl<$Res>
-    implements $SignUpModelCopyWith<$Res> {
-  _$SignUpModelCopyWithImpl(this._self, this._then);
+class _$ActiveUserModelCopyWithImpl<$Res>
+    implements $ActiveUserModelCopyWith<$Res> {
+  _$ActiveUserModelCopyWithImpl(this._self, this._then);
 
-  final SignUpModel _self;
-  final $Res Function(SignUpModel) _then;
+  final ActiveUserModel _self;
+  final $Res Function(ActiveUserModel) _then;
 
-/// Create a copy of SignUpModel
+/// Create a copy of ActiveUserModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? email = null,Object? name = null,Object? role = null,}) {
   return _then(_self.copyWith(
@@ -78,8 +78,8 @@ as String,
 }
 
 
-/// Adds pattern-matching-related methods to [SignUpModel].
-extension SignUpModelPatterns on SignUpModel {
+/// Adds pattern-matching-related methods to [ActiveUserModel].
+extension ActiveUserModelPatterns on ActiveUserModel {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -92,10 +92,10 @@ extension SignUpModelPatterns on SignUpModel {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SignUpModel value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ActiveUserModel value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _SignUpModel() when $default != null:
+case _ActiveUserModel() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -114,10 +114,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SignUpModel value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ActiveUserModel value)  $default,){
 final _that = this;
 switch (_that) {
-case _SignUpModel():
+case _ActiveUserModel():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -135,10 +135,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SignUpModel value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ActiveUserModel value)?  $default,){
 final _that = this;
 switch (_that) {
-case _SignUpModel() when $default != null:
+case _ActiveUserModel() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -158,7 +158,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String email,  String name,  String role)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _SignUpModel() when $default != null:
+case _ActiveUserModel() when $default != null:
 return $default(_that.id,_that.email,_that.name,_that.role);case _:
   return orElse();
 
@@ -179,7 +179,7 @@ return $default(_that.id,_that.email,_that.name,_that.role);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String email,  String name,  String role)  $default,) {final _that = this;
 switch (_that) {
-case _SignUpModel():
+case _ActiveUserModel():
 return $default(_that.id,_that.email,_that.name,_that.role);case _:
   throw StateError('Unexpected subclass');
 
@@ -199,7 +199,7 @@ return $default(_that.id,_that.email,_that.name,_that.role);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String email,  String name,  String role)?  $default,) {final _that = this;
 switch (_that) {
-case _SignUpModel() when $default != null:
+case _ActiveUserModel() when $default != null:
 return $default(_that.id,_that.email,_that.name,_that.role);case _:
   return null;
 
@@ -211,29 +211,29 @@ return $default(_that.id,_that.email,_that.name,_that.role);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _SignUpModel implements SignUpModel {
-  const _SignUpModel({required this.id, required this.email, required this.name, required this.role});
-  factory _SignUpModel.fromJson(Map<String, dynamic> json) => _$SignUpModelFromJson(json);
+class _ActiveUserModel implements ActiveUserModel {
+  const _ActiveUserModel({required this.id, required this.email, required this.name, required this.role});
+  factory _ActiveUserModel.fromJson(Map<String, dynamic> json) => _$ActiveUserModelFromJson(json);
 
 @override final  String id;
 @override final  String email;
 @override final  String name;
 @override final  String role;
 
-/// Create a copy of SignUpModel
+/// Create a copy of ActiveUserModel
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$SignUpModelCopyWith<_SignUpModel> get copyWith => __$SignUpModelCopyWithImpl<_SignUpModel>(this, _$identity);
+_$ActiveUserModelCopyWith<_ActiveUserModel> get copyWith => __$ActiveUserModelCopyWithImpl<_ActiveUserModel>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$SignUpModelToJson(this, );
+  return _$ActiveUserModelToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignUpModel&&(identical(other.id, id) || other.id == id)&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.role, role) || other.role == role));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ActiveUserModel&&(identical(other.id, id) || other.id == id)&&(identical(other.email, email) || other.email == email)&&(identical(other.name, name) || other.name == name)&&(identical(other.role, role) || other.role == role));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -242,15 +242,15 @@ int get hashCode => Object.hash(runtimeType,id,email,name,role);
 
 @override
 String toString() {
-  return 'SignUpModel(id: $id, email: $email, name: $name, role: $role)';
+  return 'ActiveUserModel(id: $id, email: $email, name: $name, role: $role)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$SignUpModelCopyWith<$Res> implements $SignUpModelCopyWith<$Res> {
-  factory _$SignUpModelCopyWith(_SignUpModel value, $Res Function(_SignUpModel) _then) = __$SignUpModelCopyWithImpl;
+abstract mixin class _$ActiveUserModelCopyWith<$Res> implements $ActiveUserModelCopyWith<$Res> {
+  factory _$ActiveUserModelCopyWith(_ActiveUserModel value, $Res Function(_ActiveUserModel) _then) = __$ActiveUserModelCopyWithImpl;
 @override @useResult
 $Res call({
  String id, String email, String name, String role
@@ -261,17 +261,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$SignUpModelCopyWithImpl<$Res>
-    implements _$SignUpModelCopyWith<$Res> {
-  __$SignUpModelCopyWithImpl(this._self, this._then);
+class __$ActiveUserModelCopyWithImpl<$Res>
+    implements _$ActiveUserModelCopyWith<$Res> {
+  __$ActiveUserModelCopyWithImpl(this._self, this._then);
 
-  final _SignUpModel _self;
-  final $Res Function(_SignUpModel) _then;
+  final _ActiveUserModel _self;
+  final $Res Function(_ActiveUserModel) _then;
 
-/// Create a copy of SignUpModel
+/// Create a copy of ActiveUserModel
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? email = null,Object? name = null,Object? role = null,}) {
-  return _then(_SignUpModel(
+  return _then(_ActiveUserModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
