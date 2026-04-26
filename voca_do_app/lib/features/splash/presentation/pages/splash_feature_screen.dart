@@ -25,7 +25,7 @@ class SplashFeatureScreen extends StatelessWidget {
                   Role.admin.name.toLowerCase()) {
                 await Future.delayed(Duration(milliseconds: 2000));
                 if (context.mounted) {
-                  context.go(Routes.testAdminHome);
+                  context.go(Routes.taskCreator);
                 }
               } else {
                 context.go(Routes.testUserHome);

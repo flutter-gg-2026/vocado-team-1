@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'routers.dart';
 import 'package:get_it/get_it.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:voca_do_app/features/task_creator/presentation/pages/task_creator_feature_screen.dart';
+import 'package:voca_do_app/features/task_creator/presentation/cubit/task_creator_cubit.dart';
 import 'package:voca_do_app/features/sign_up/presentation/pages/sign_up_feature_screen.dart';
 import 'package:voca_do_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:voca_do_app/features/sign_in/presentation/pages/sign_in_feature_screen.dart';
@@ -43,14 +45,6 @@ class AppRouter {
       ),
 
       GoRoute(
-        path: Routes.splash,
-        builder: (context, state) => BlocProvider(
-          create: (context) => SplashCubit(GetIt.I.get()),
-          child: const SplashFeatureScreen(),
-        ),
-      ),
-
-      GoRoute(
         path: Routes.testAdminHome,
         builder: (context, state) => BlocProvider(
           create: (context) => TestAdminHomeCubit(GetIt.I.get()),
@@ -63,6 +57,15 @@ class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => TestUserHomeCubit(GetIt.I.get()),
           child: const TestUserHomeFeatureScreen(),
+        ),
+      ),
+
+      // SplashScreen
+      GoRoute(
+        path: Routes.taskCreator,
+        builder: (context, state) => BlocProvider(
+          create: (context) => TaskCreatorCubit(GetIt.I.get()),
+          child: const TaskCreatorFeatureScreen(),
         ),
       ),
     ],

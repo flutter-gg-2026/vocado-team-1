@@ -110,6 +110,7 @@ class LocationFailure extends Failure {
   const LocationFailure([super.message = 'Location error']);
 }
 
+
 class CameraFailure extends Failure {
   const CameraFailure([super.message = 'Camera error']);
 }
