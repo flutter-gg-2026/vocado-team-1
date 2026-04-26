@@ -55,6 +55,7 @@ class TaskCreatorFeatureScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
+        appBar: AppBar(),
         backgroundColor: const Color(0xffF7F7FB),
         body: SafeArea(
           child: BlocBuilder<TaskCreatorCubit, TaskCreatorState>(

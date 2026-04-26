@@ -25,10 +25,10 @@ class SplashFeatureScreen extends StatelessWidget {
                   Role.admin.name.toLowerCase()) {
                 await Future.delayed(Duration(milliseconds: 2000));
                 if (context.mounted) {
-                  context.go(Routes.taskCreator);
+                  context.go(Routes.home);
                 }
               } else {
-                context.go(Routes.testUserHome);
+                context.go(Routes.userDashboard);
               }
             case SplashUnauthenticatedState _:
               await Future.delayed(Duration(milliseconds: 2000));

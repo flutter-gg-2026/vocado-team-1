@@ -15,6 +15,13 @@ import 'package:voca_do_app/features/test_admin_home/presentation/pages/test_adm
 import 'package:voca_do_app/features/test_admin_home/presentation/cubit/test_admin_home_cubit.dart';
 import 'package:voca_do_app/features/test_user_home/presentation/pages/test_user_home_feature_screen.dart';
 import 'package:voca_do_app/features/test_user_home/presentation/cubit/test_user_home_cubit.dart';
+import 'package:voca_do_app/features/home/presentation/pages/home_feature_screen.dart';
+import 'package:voca_do_app/features/home/presentation/cubit/home_cubit.dart';
+import 'package:voca_do_app/features/tasks/presentation/pages/tasks_feature_screen.dart';
+import 'package:voca_do_app/features/tasks/presentation/cubit/tasks_cubit.dart';
+import 'package:voca_do_app/features/tasks/domain/entities/tasks_entity.dart';
+import 'package:voca_do_app/features/tasks/presentation/pages/task_details_feature_screen.dart';
+import 'package:voca_do_app/features/home/presentation/pages/user_dashboard_feature_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -66,6 +73,39 @@ class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => TaskCreatorCubit(GetIt.I.get()),
           child: const TaskCreatorFeatureScreen(),
+        ),
+      ),
+
+      GoRoute(
+        path: Routes.home,
+        builder: (context, state) {
+          return BlocProvider(
+            create: (context) => HomeCubit(GetIt.I.get()),
+            child: const HomeFeatureScreen(),
+          );
+        },
+      ),
+
+      GoRoute(
+        path: Routes.tasks,
+        builder: (context, state) => BlocProvider(
+          create: (context) => TasksCubit(GetIt.I.get()),
+          child: const TasksFeatureScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.taskDetails,
+        builder: (context, state) {
+          final task = state.extra as TasksEntity;
+
+          return TaskDetailsFeatureScreen(task: task);
+        },
+      ),
+      GoRoute(
+        path: Routes.userDashboard,
+        builder: (context, state) => BlocProvider(
+          create: (context) => HomeCubit(GetIt.I.get()),
+          child: const UserDashboardFeatureScreen(),
         ),
       ),
     ],

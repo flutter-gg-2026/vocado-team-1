@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:voca_do_app/core/network/api_endpoints.dart';
 import 'package:voca_do_app/core/network/dio_client.dart';
 
