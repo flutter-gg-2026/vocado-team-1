@@ -32,7 +32,7 @@ class LoadingWidgetOverlay {
             child: LoadingAnimationWidget.discreteCircle(
               // leftDotColor: const Color(0xFF1A1A3F),
               // rightDotColor: const Color(0xFFEA3799),
-              secondRingColor: AppColors.secondary,
+              secondRingColor: Colors.yellow.shade800,
               thirdRingColor: AppColors.surface,
               color: AppColors.surface,
               size: 50,
@@ -64,7 +64,7 @@ class LoadingWidget extends StatelessWidget {
       child: LoadingAnimationWidget.discreteCircle(
         // leftDotColor: const Color(0xFF1A1A3F),
         // rightDotColor: const Color(0xFFEA3799),
-        secondRingColor: AppColors.secondary,
+        secondRingColor: Colors.yellow.shade800,
         thirdRingColor: AppColors.surface,
         color: AppColors.surface,
         size: size ?? 50,
@@ -72,4 +72,3 @@ class LoadingWidget extends StatelessWidget {
     );
   }
 }
-
