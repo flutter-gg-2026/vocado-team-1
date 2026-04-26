@@ -21,26 +21,20 @@ class UserDashboardFeatureScreen extends StatelessWidget {
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           if (index == 0) {
-            context.go(Routes.tasks);
+            context.push(Routes.tasks);
           }
 
           if (index == 1) {
-            context.go(Routes.home);
+            context.push(Routes.home);
+          }
+          if (index == 2) {
+            context.push(Routes.testUserHome);
           }
         },
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task),
-            label: 'Tasks',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.task), label: 'Tasks'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
 
@@ -92,10 +86,7 @@ class _StatusCard extends StatelessWidget {
         title: Text(title),
         trailing: Text(
           count.toString(),
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
     );

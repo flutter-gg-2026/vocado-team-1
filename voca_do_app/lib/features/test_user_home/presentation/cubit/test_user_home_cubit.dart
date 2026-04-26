@@ -11,10 +11,10 @@ class TestUserHomeCubit extends Cubit<TestUserHomeState> {
     final result = await _testUserHomeUseCase.getTestUserHome();
     result.when(
       (success) {
-        //here is when success result
+       emit(TestUserHomeSuccessState(profile: success));
       },
       (whenError) {
-       //here is when error result
+     emit(TestUserHomeErrorState(message: whenError.message));
       },
     );
   }

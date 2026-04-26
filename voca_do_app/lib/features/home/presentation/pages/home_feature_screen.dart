@@ -30,9 +30,9 @@ class HomeFeatureScreen extends StatelessWidget {
           if (index == 2) {
             context.push(Routes.taskCreator);
           }
-          /*  if (index == 3) {
-            context.go(Routes.taskCreator);
-          }  */
+          if (index == 3) {
+            context.push(Routes.testUserHome);
+          }
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.task), label: 'Tasks'),

@@ -8,14 +8,16 @@ part of 'test_user_home_model.dart';
 
 _TestUserHomeModel _$TestUserHomeModelFromJson(Map<String, dynamic> json) =>
     _TestUserHomeModel(
-      id: (json['id'] as num).toInt(),
-      firstName: json['firstName'] as String,
-      lastName: json['lastName'] as String,
+      id: json['id'] as String,
+      userName: json['userName'] as String,
+      emailName: json['emailName'] as String,
+      roleName: json['roleName'] as String,
     );
 
 Map<String, dynamic> _$TestUserHomeModelToJson(_TestUserHomeModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'firstName': instance.firstName,
-      'lastName': instance.lastName,
+      'userName': instance.userName,
+      'emailName': instance.emailName,
+      'roleName': instance.roleName,
     };

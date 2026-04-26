@@ -70,9 +70,9 @@ class SignInFeatureScreen extends HookWidget {
                         case SignInSuccessState _:
                           if (state.user.role.toLowerCase() ==
                               Role.user.name.toLowerCase()) {
-                            context.go(Routes.testUserHome);
+                            context.go(Routes.userDashboard);
                           } else {
-                            context.go(Routes.testAdminHome);
+                            context.go(Routes.home);
                           }
                         case SignInErrorState _:
                           context.showSnackBar(state.message, isError: true);

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TestUserHomeModel {
 
- int get id; String get firstName; String get lastName;
+ String get id; String get userName; String get emailName; String get roleName;
 /// Create a copy of TestUserHomeModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $TestUserHomeModelCopyWith<TestUserHomeModel> get copyWith => _$TestUserHomeMode
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TestUserHomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TestUserHomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.userName, userName) || other.userName == userName)&&(identical(other.emailName, emailName) || other.emailName == emailName)&&(identical(other.roleName, roleName) || other.roleName == roleName));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,id,userName,emailName,roleName);
 
 @override
 String toString() {
-  return 'TestUserHomeModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'TestUserHomeModel(id: $id, userName: $userName, emailName: $emailName, roleName: $roleName)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $TestUserHomeModelCopyWith<$Res>  {
   factory $TestUserHomeModelCopyWith(TestUserHomeModel value, $Res Function(TestUserHomeModel) _then) = _$TestUserHomeModelCopyWithImpl;
 @useResult
 $Res call({
- int id, String firstName, String lastName
+ String id, String userName, String emailName, String roleName
 });
 
 
@@ -65,11 +65,12 @@ class _$TestUserHomeModelCopyWithImpl<$Res>
 
 /// Create a copy of TestUserHomeModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? userName = null,Object? emailName = null,Object? roleName = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,userName: null == userName ? _self.userName : userName // ignore: cast_nullable_to_non_nullable
+as String,emailName: null == emailName ? _self.emailName : emailName // ignore: cast_nullable_to_non_nullable
+as String,roleName: null == roleName ? _self.roleName : roleName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String userName,  String emailName,  String roleName)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TestUserHomeModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.userName,_that.emailName,_that.roleName);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String firstName,  String lastName)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String userName,  String emailName,  String roleName)  $default,) {final _that = this;
 switch (_that) {
 case _TestUserHomeModel():
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.userName,_that.emailName,_that.roleName);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String firstName,  String lastName)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String userName,  String emailName,  String roleName)?  $default,) {final _that = this;
 switch (_that) {
 case _TestUserHomeModel() when $default != null:
-return $default(_that.id,_that.firstName,_that.lastName);case _:
+return $default(_that.id,_that.userName,_that.emailName,_that.roleName);case _:
   return null;
 
 }
@@ -211,12 +212,13 @@ return $default(_that.id,_that.firstName,_that.lastName);case _:
 @JsonSerializable()
 
 class _TestUserHomeModel implements TestUserHomeModel {
-  const _TestUserHomeModel({required this.id, required this.firstName, required this.lastName});
+  const _TestUserHomeModel({required this.id, required this.userName, required this.emailName, required this.roleName});
   factory _TestUserHomeModel.fromJson(Map<String, dynamic> json) => _$TestUserHomeModelFromJson(json);
 
-@override final  int id;
-@override final  String firstName;
-@override final  String lastName;
+@override final  String id;
+@override final  String userName;
+@override final  String emailName;
+@override final  String roleName;
 
 /// Create a copy of TestUserHomeModel
 /// with the given fields replaced by the non-null parameter values.
@@ -231,16 +233,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TestUserHomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TestUserHomeModel&&(identical(other.id, id) || other.id == id)&&(identical(other.userName, userName) || other.userName == userName)&&(identical(other.emailName, emailName) || other.emailName == emailName)&&(identical(other.roleName, roleName) || other.roleName == roleName));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,firstName,lastName);
+int get hashCode => Object.hash(runtimeType,id,userName,emailName,roleName);
 
 @override
 String toString() {
-  return 'TestUserHomeModel(id: $id, firstName: $firstName, lastName: $lastName)';
+  return 'TestUserHomeModel(id: $id, userName: $userName, emailName: $emailName, roleName: $roleName)';
 }
 
 
@@ -251,7 +253,7 @@ abstract mixin class _$TestUserHomeModelCopyWith<$Res> implements $TestUserHomeM
   factory _$TestUserHomeModelCopyWith(_TestUserHomeModel value, $Res Function(_TestUserHomeModel) _then) = __$TestUserHomeModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String firstName, String lastName
+ String id, String userName, String emailName, String roleName
 });
 
 
@@ -268,11 +270,12 @@ class __$TestUserHomeModelCopyWithImpl<$Res>
 
 /// Create a copy of TestUserHomeModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? firstName = null,Object? lastName = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? userName = null,Object? emailName = null,Object? roleName = null,}) {
   return _then(_TestUserHomeModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
-as String,lastName: null == lastName ? _self.lastName : lastName // ignore: cast_nullable_to_non_nullable
+as String,userName: null == userName ? _self.userName : userName // ignore: cast_nullable_to_non_nullable
+as String,emailName: null == emailName ? _self.emailName : emailName // ignore: cast_nullable_to_non_nullable
+as String,roleName: null == roleName ? _self.roleName : roleName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }

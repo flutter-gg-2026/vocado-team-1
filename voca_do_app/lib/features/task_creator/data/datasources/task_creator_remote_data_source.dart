@@ -85,7 +85,7 @@ class TaskCreatorRemoteDataSource implements BaseTaskCreatorRemoteDataSource {
       //create the model that is going to be used
       final model = GenerativeModel(
         model: 'gemini-2.5-flash',
-        apiKey: Env.geminiKey,
+        apiKey: "Env.geminiKey",
       );
       //Setup the output configuration
       final config = GenerationConfig(

@@ -6,9 +6,10 @@ part 'test_user_home_model.g.dart';
 @freezed
 abstract class TestUserHomeModel with _$TestUserHomeModel {
   const factory TestUserHomeModel({
-    required int id,
-    required String firstName,
-    required String lastName,
+    required String id,
+    required String userName,
+    required String emailName,
+     required String roleName,
     
   }) = _TestUserHomeModel;
 
@@ -19,6 +20,6 @@ abstract class TestUserHomeModel with _$TestUserHomeModel {
 
 extension TestUserHomeModelMapper on TestUserHomeModel {
   TestUserHomeEntity toEntity() {
-    return TestUserHomeEntity(id: id, firstName: firstName, lastName: lastName);
+    return TestUserHomeEntity(id: id, userName: userName, emailName: emailName,roleName:roleName);
   }
   }
